@@ -2,6 +2,7 @@ import React from 'react'
 import {
     BrowserRouter as Router,
     Switch,
+    Redirect,
     Route,
   } from "react-router-dom";
 import { Aboutus } from '../components/aboutus/Aboutus';
@@ -25,12 +26,16 @@ export const AppRouters = () => {
     
        <Router>
             <NavBar />
-                <Switch>
-                    <Route exact path="/" component={Home} />
+            <div>
+            <Switch>
+                    <Route exact path="/home" component={Home} />
                     <Route exact path="/category" component={Category} />
                     <Route exact path="/contact" component={Contact} />
                     <Route exact path="/aboutus" component={Aboutus} />
-                </Switch>
+                    <Redirect to="/home" />
+                </Switch>     
+            </div>
+
             <Footer />
         </Router>     
     )
